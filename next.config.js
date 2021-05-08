@@ -7,8 +7,10 @@ const {
 const provider = commerce.provider || getProviderName()
 const isBC = provider === 'bigcommerce'
 const isShopify = provider === 'shopify'
+const serverlessconfig = {target: "serverless"};
 
 module.exports = withCommerceConfig({
+  serverlessconfig,
   commerce,
   i18n: {
     locales: ['en-US', 'es'],
@@ -43,6 +45,7 @@ module.exports = withCommerceConfig({
     ].filter((x) => x)
   },
 })
+
 
 // Don't delete this console log, useful to see the commerce config in Vercel deployments
 console.log('next.config.js', JSON.stringify(module.exports, null, 2))

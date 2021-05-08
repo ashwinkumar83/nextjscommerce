@@ -42,6 +42,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+    <h2> This is a demo BigCommerce - next js website </h2>
       <Grid>
         {products.slice(0, 3).map((product, i) => (
           <ProductCard

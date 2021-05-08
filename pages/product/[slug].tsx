@@ -3,10 +3,10 @@ import type {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
+import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { Layout } from '@components/common'
 import { ProductView } from '@components/product'
-
 import { getConfig } from '@framework/api'
 import getProduct from '@framework/product/get-product'
 import getAllPages from '@framework/common/get-all-pages'
@@ -63,7 +63,12 @@ export default function Slug({
   return router.isFallback ? (
     <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
   ) : (
+    <>
     <ProductView product={product as any} />
+    <Link href="{`/posts/${id}`}">
+    <a>{product.name}</a>
+  </Link>
+  </>
   )
 }
 
