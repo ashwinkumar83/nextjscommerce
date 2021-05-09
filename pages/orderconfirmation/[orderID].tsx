@@ -14,7 +14,7 @@ import type {
   import { useRouter } from 'next/router'
   import { GetServerSideProps } from 'next'
   import getOrderData from '../api/bigcommerce/order/orderapi'
-  
+  import { OrderConfirmView } from '@components/order/OrderConfirmView'
 
   export async function getServerSideProps(context) {
     // Fetch data from external API
@@ -30,14 +30,9 @@ import type {
   {
     console.log("OrderConfirmationPage");
     return (
-      <div className="max-w-2xl mx-8 sm:mx-auto py-20">
-       <h1><b> Order confirmation page </b></h1><br/> 
-       Order ID {data.id} and status is {data.status} <br/>
-       Total cost : {data.total_inc_tax} <br/>
-       Shipped to {data.billing_address.first_name} {data.billing_address.last_name} residing in {data.billing_address.city} , {data.billing_address.country}
-      </div>
+     <OrderConfirmView order={data as any} />
     )
   }
   
   
-  
+  OrderConfirmationPage.Layout = Layout

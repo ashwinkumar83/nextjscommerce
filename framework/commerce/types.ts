@@ -37,7 +37,7 @@ export type ProductVariant = {
   sku: string
   // The product variant’s title, or the product's name.
   name: string
-  // Whether a customer needs to provide a shipping address when placing
+  // Whether a customer needs to provide a shipping address when placing 
   // an order for the product variant.
   requiresShipping: boolean
   // The product variant’s price after all discounts are applied.
